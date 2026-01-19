@@ -25,6 +25,7 @@ This workshop focused on providing hands-on training in RNA-Seq data analysis us
 - Data Source: Zenodo repository  
 - Dataset Link: https://zenodo.org/records/4249555  
 - Samples: Control and treated samples  
+![Zenodo Dataset](images/zenododataset.png)
 
 The RNA-Seq dataset used in this analysis was obtained from the Zenodo repository. The dataset consists of raw FASTQ files generated from mouse RNA-Seq experiments and was used throughout the workshop for practical analysis.
 
@@ -45,49 +46,57 @@ The RNA-Seq dataset used in this analysis was obtained from the Zenodo repositor
 ### Step 1: Quality Control using FASTQC
 FASTQC was used to evaluate the quality of raw RNA-Seq reads. Parameters such as per-base sequence quality, GC content, sequence length distribution, and adapter contamination were examined to assess the overall quality of the data.
 
-![FASTQC Output](images/FASTQC.png)
+![FASTQC Result](images/fastqcresult.png)
+
 
 ---
 
 ### Step 2: Read Trimming using Trim Galore
 Trim Galore was employed to remove adapter sequences and trim low-quality bases from the raw reads. This step helped improve the quality of reads for downstream analysis.
 
-![Trim Galore Output](images/TrimGalore.png)
+![Trim Galore Result](images/trimgaloreresult.png)
+
 
 ---
 
 ### Step 3: Read Alignment using Bowtie2
 The trimmed reads were aligned to the reference mouse genome using Bowtie2. The alignment generated SAM/BAM files, and mapping statistics were evaluated to determine alignment efficiency.
 
-![Bowtie2 Alignment](images/Bowtie2.png)
+![Bowtie2 Alignment](images/bowtiealignment.png)
+
 
 ---
 
 ### Step 4: Read Counting using FeatureCounts
 FeatureCounts was used to assign aligned reads to specific genes. A gene count matrix was generated and used as input for differential gene expression analysis.
 
-![FeatureCounts Output](images/FeatureCounts.png)
+![FeatureCounts Output](images/featurecountresult.png)
 
 ---
 
 ### Step 5: Differential Gene Expression Analysis using DESeq2
 DESeq2 was used to normalize gene count data and compare gene expression levels between control and treated samples. Differentially expressed genes were identified based on statistical significance.
 
-![DESeq2 Results](images/DESeq2.png)
+![DESeq Result 1](images/deseqresult1.png)
+![DESeq Result 2](images/deseqresult2.png)
+![DESeq Result 3](images/deseqresult3.png)
+
 
 ---
 
 ### Step 6: Heatmap Visualization
 Heatmaps were generated to visualize expression patterns of significantly differentially expressed genes across different samples.
 
-![Heatmap](images/Heatmap.png)
+![Heatmap](images/expressionheatmap.png)
+
 
 ---
 
 ### Step 7: KEGG Pathway Analysis
 KEGG pathway analysis was performed to understand the biological pathways associated with the differentially expressed genes and to interpret their functional significance.
 
-![KEGG Pathway](images/KEGG.png)
+![KEGG Pathway](images/keggpathway.png)
+
 
 ---
 
