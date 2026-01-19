@@ -72,6 +72,7 @@ FeatureCounts was used to assign aligned reads to specific genes. A gene count m
 
 ![FeatureCounts Output](images/featurecountresult.png)
 
+
 ---
 
 ### Step 5: Differential Gene Expression Analysis using DESeq2
