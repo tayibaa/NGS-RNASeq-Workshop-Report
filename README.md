@@ -2,88 +2,114 @@
 This repository contains a detailed report on RNA-Seq data analysis using Next Generation Sequencing (NGS). It covers the complete workflow including quality control, read trimming, alignment, read counting, differential gene expression analysis, and pathway visualization using standard bioinformatics tools on the Galaxy platform.
 # NGS WORKSHOP REPORT
 
-## RNA-Seq Data Analysis Using Next Generation Sequencing (NGS)
+## RNA-Seq Data Analysis Workflow Using Next Generation Sequencing (NGS)
 
 ---
 
 ## Aim
-To understand and perform a basic RNA-Seq data analysis workflow using Next Generation Sequencing (NGS), including quality control, read trimming, alignment, read counting, and differential gene expression analysis.
+The aim of this workshop was to understand and perform a complete RNA-Seq data analysis workflow using Next Generation Sequencing (NGS), starting from raw sequencing data to final biological interpretation.
 
 ---
 
 ## Introduction
-Next Generation Sequencing (NGS) is a high-throughput sequencing technology that enables rapid sequencing of DNA and RNA. RNA sequencing (RNA-Seq) is a widely used NGS application for studying gene expression by sequencing cDNA derived from RNA samples.
+Next Generation Sequencing (NGS) is a powerful technology that enables high-throughput sequencing of nucleic acids. RNA sequencing (RNA-Seq) is one of the most widely used NGS applications for studying gene expression by sequencing complementary DNA (cDNA) generated from RNA samples.
 
-This workshop focused on learning the complete RNA-Seq analysis pipeline and gaining hands-on experience with commonly used bioinformatics tools to analyze sequencing data and derive meaningful biological insights.
+This workshop focused on providing hands-on training in RNA-Seq data analysis using standard bioinformatics tools. The objective was to understand how raw sequencing data is processed, analyzed, and interpreted using a systematic workflow.
 
 ---
 
-## Dataset Used
-- Type: RNA-Seq data  
-- Format: FASTQ files  
-- Organism: Mouse (*Mus musculus*)  
-- Source: Publicly available dataset  
+## Dataset Description
+- Data Type: RNA-Seq  
+- File Format: FASTQ  
+- Organism: *Mus musculus* (Mouse)  
+- Data Source: Zenodo repository  
+- Dataset Link: https://zenodo.org/records/4249555  
 - Samples: Control and treated samples  
 
+The RNA-Seq dataset used in this analysis was obtained from the Zenodo repository. The dataset consists of raw FASTQ files generated from mouse RNA-Seq experiments and was used throughout the workshop for practical analysis.
+
 ---
 
-## Tools and Software Used
+## Tools and Platforms Used
 - FASTQC – Quality assessment of raw sequencing data  
-- Trim Galore – Trimming low-quality reads and adapter sequences  
-- Bowtie2 – Alignment of reads to the reference genome  
-- FeatureCounts – Counting reads mapped to genes  
+- Trim Galore – Removal of adapter sequences and low-quality bases  
+- Bowtie2 – Alignment of sequencing reads to the reference genome  
+- FeatureCounts – Counting reads mapped to genomic features  
 - DESeq2 – Differential gene expression analysis  
-- Galaxy Platform – Online bioinformatics analysis environment  
+- Galaxy Platform – Online platform used for performing the complete workflow  
 
 ---
 
-## Methodology / Workflow
+## Workflow Methodology
 
-### 1. Quality Control (FASTQC)
-Raw FASTQ files were analyzed using FASTQC to assess sequencing quality. Parameters such as per-base sequence quality, GC content, sequence length distribution, and adapter contamination were examined.
+### Step 1: Quality Control using FASTQC
+FASTQC was used to evaluate the quality of raw RNA-Seq reads. Parameters such as per-base sequence quality, GC content, sequence length distribution, and adapter contamination were examined to assess the overall quality of the data.
 
----
-
-### 2. Read Trimming (Trim Galore)
-Trim Galore was used to remove adapter sequences and low-quality bases from the raw reads. This step improves data quality and ensures better alignment results.
+![FASTQC Output](images/FASTQC.png)
 
 ---
 
-### 3. Read Alignment (Bowtie2)
-Cleaned reads were aligned to the reference mouse genome using Bowtie2. The output was generated in SAM/BAM format, and alignment statistics were checked to evaluate mapping efficiency.
+### Step 2: Read Trimming using Trim Galore
+Trim Galore was employed to remove adapter sequences and trim low-quality bases from the raw reads. This step helped improve the quality of reads for downstream analysis.
+
+![Trim Galore Output](images/TrimGalore.png)
 
 ---
 
-### 4. Read Counting (FeatureCounts)
-FeatureCounts was used to assign aligned reads to genomic features (genes). A gene count matrix was generated for downstream analysis.
+### Step 3: Read Alignment using Bowtie2
+The trimmed reads were aligned to the reference mouse genome using Bowtie2. The alignment generated SAM/BAM files, and mapping statistics were evaluated to determine alignment efficiency.
+
+![Bowtie2 Alignment](images/Bowtie2.png)
 
 ---
 
-### 5. Differential Gene Expression Analysis (DESeq2)
-DESeq2 was used to normalize gene count data and compare control and treated samples. Differentially expressed genes were identified using log2 fold change and adjusted p-values.
+### Step 4: Read Counting using FeatureCounts
+FeatureCounts was used to assign aligned reads to specific genes. A gene count matrix was generated and used as input for differential gene expression analysis.
+
+![FeatureCounts Output](images/FeatureCounts.png)
 
 ---
 
-### 6. Visualization and Functional Analysis
-Heatmaps were generated to visualize gene expression patterns. KEGG pathway analysis was performed to identify biological pathways associated with the differentially expressed genes.
+### Step 5: Differential Gene Expression Analysis using DESeq2
+DESeq2 was used to normalize gene count data and compare gene expression levels between control and treated samples. Differentially expressed genes were identified based on statistical significance.
+
+![DESeq2 Results](images/DESeq2.png)
 
 ---
 
-## Results
-High-quality reads were obtained after trimming. Most reads aligned successfully to the reference genome. Several genes showed significant up-regulation and down-regulation. Heatmaps clearly differentiated control and treated samples, and KEGG analysis highlighted relevant biological pathways.
+### Step 6: Heatmap Visualization
+Heatmaps were generated to visualize expression patterns of significantly differentially expressed genes across different samples.
+
+![Heatmap](images/Heatmap.png)
+
+---
+
+### Step 7: KEGG Pathway Analysis
+KEGG pathway analysis was performed to understand the biological pathways associated with the differentially expressed genes and to interpret their functional significance.
+
+![KEGG Pathway](images/KEGG.png)
+
+---
+
+## Results and Observations
+- High-quality reads were obtained after trimming  
+- A large proportion of reads aligned successfully to the reference genome  
+- Several genes showed significant up-regulation and down-regulation  
+- Heatmaps clearly differentiated control and treated samples  
+- KEGG pathway analysis revealed biologically relevant pathways  
 
 ---
 
 ## Conclusion
-This workshop provided practical experience in RNA-Seq data analysis using NGS. The step-by-step workflow demonstrated how raw sequencing data can be transformed into biologically meaningful information, which is essential in genomics and transcriptomics research.
+The NGS workshop provided comprehensive practical exposure to RNA-Seq data analysis. The step-by-step workflow demonstrated how raw sequencing data obtained from Zenodo can be processed into biologically meaningful results using standard bioinformatics tools. This analysis is essential for understanding transcriptomic data in modern biological research.
 
 ---
 
 ## Learning Outcomes
-- Understanding of NGS and RNA-Seq concepts  
-- Practical experience with bioinformatics tools  
-- Ability to perform RNA-Seq data analysis  
-- Interpretation of differential gene expression results  
+- Understanding of NGS and RNA-Seq principles  
+- Hands-on experience with RNA-Seq data analysis tools  
+- Ability to analyze and interpret differential gene expression results  
+- Familiarity with Galaxy-based NGS workflows  
 
 ---
 
@@ -91,5 +117,6 @@ This workshop provided practical experience in RNA-Seq data analysis using NGS. 
 - FASTQC Documentation  
 - Trim Galore User Guide  
 - Bowtie2 Manual  
-- DESeq2 Bioconductor Package  
+- DESeq2 Bioconductor Documentation  
 - Galaxy Platform Documentation  
+- Zenodo Repository: Raw mouse mammary RNA-Seq data (FASTQ) – https://zenodo.org/records/4249555
